@@ -1,0 +1,790 @@
+[ @file = "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc"; @line = 1; ]
+import Toybox.Lang;
+[ @file = "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc"; @line = 2; ]
+import Toybox.WatchUi;
+[ @file = "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc"; @line = 4; ]
+class BlackjackDelegate extends WatchUi.BehaviorDelegate{
+    [ @file = "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc"; @line = 4; ]
+    <init> {
+    }
+    [ @file = "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc"; @line = 4; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc"; @line = 6; ]
+    function initialize() as Void {
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_6_26_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 7 8 ]
+        %tmp.2 = getv ? :BehaviorDelegate;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_6_26_stop:
+    }
+    [ @file = "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc"; @line = 10; ]
+    function onMenu() as Boolean {
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_10_33_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 11 16 ]
+        %tmp.1 = getm $.Toybox.WatchUi;
+        %tmp.2 = getv function %tmp.1 :pushView;
+        %tmp.6 = getv ? :BlackjackSettings;
+        %tmp.3 = newc %tmp.6 ();
+        %tmp.10 = getv ? :BlackjackMenuDelegate;
+        %tmp.7 = newc %tmp.10 ();
+        %tmp.11 = getm $.Toybox.WatchUi;
+        %tmp.12 = getv %tmp.11 :SLIDE_UP;
+        invoke %tmp.1 %tmp.2(%tmp.3, %tmp.7, %tmp.12);
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 12 8 ]
+        %tmp.13 = true;
+        ret %tmp.13;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_10_33_stop:
+    }
+    [ @file = "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc"; @line = 15; ]
+    function onTap(clickEvent) as Boolean {
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_15_42_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 16 8 ]
+        [ "C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_15_42_start" "C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_15_42_stop" ]
+        %xy.1 = local;
+        %tmp.1 = lgetv %clickEvent;
+        %tmp.2 = getv function %tmp.1 :getCoordinates;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %xy.1 %tmp.3;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 18 8 ]
+        %tmp.5 = getv ? :state;
+        push %tmp.5;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_18_8_switchStmtBegin:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 19 12 ]
+        %tmp.6 = dup %tmp.5;
+        %tmp.7 = 0;
+        %tmp.8 = getv function %tmp.6 :equals;
+        %tmp.9 = invoke %tmp.6 %tmp.8 (%tmp.7);
+        bt %tmp.9 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_19_12_switchCase;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 51 12 ]
+        %tmp.10 = dup %tmp.5;
+        %tmp.11 = 1;
+        %tmp.12 = getv function %tmp.10 :equals;
+        %tmp.13 = invoke %tmp.10 %tmp.12 (%tmp.11);
+        bt %tmp.13 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_51_12_switchCase;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 90 12 ]
+        %tmp.14 = dup %tmp.5;
+        %tmp.15 = 2;
+        %tmp.16 = getv function %tmp.14 :equals;
+        %tmp.17 = invoke %tmp.14 %tmp.16 (%tmp.15);
+        bt %tmp.17 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_90_12_switchCase;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 107 12 ]
+        %tmp.18 = dup %tmp.5;
+        %tmp.19 = 3;
+        %tmp.20 = getv function %tmp.18 :equals;
+        %tmp.21 = invoke %tmp.18 %tmp.20 (%tmp.19);
+        bt %tmp.21 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_107_12_switchCase;
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_18_8_defaultCodeBegin;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_19_12_switchCase:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 22 16 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_22_16_if_stmt:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_22_20_begin:
+        %tmp.22 = self;
+        %tmp.23 = getv function %tmp.22 :inbox;
+        %tmp.25 = getv ? :clearXY;
+        %tmp.27 = getv ? :buttonWH;
+        %tmp.29 = lgetv %xy.1;
+        %tmp.30 = invoke %tmp.22 %tmp.23(%tmp.25, %tmp.27, %tmp.29);
+        %tmp.31 = dup %tmp.30;
+        bf %tmp.31 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_22_51_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_22_51_true:
+        %tmp.33 = getv ? :bet;
+        %tmp.34 = 0;
+        %tmp.35 = gt %tmp.33 %tmp.34;
+        %tmp.36 = and %tmp.30 %tmp.35;
+        push %tmp.36;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_22_51_end:
+        %tmp.37 = phi [%tmp.31 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_22_20_begin] [%tmp.36 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_22_51_true] [%tmp.37 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_22_51_end];
+        bf %tmp.37 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_22_16_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_22_16_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_22_60_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 23 20 ]
+        %tmp.38 = getv self :money;
+        %tmp.40 = getv ? :bet;
+        %tmp.41 = add %tmp.38 %tmp.40;
+        putv self :money dup %tmp.41;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 24 20 ]
+        %tmp.42 = 0;
+        putv self :bet %tmp.42;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 25 20 ]
+        %tmp.43 = self;
+        %tmp.44 = getv function %tmp.43 :savegame;
+        invoke %tmp.43 %tmp.44();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 26 20 ]
+        %tmp.45 = getm $.Toybox.WatchUi;
+        %tmp.46 = getv function %tmp.45 :requestUpdate;
+        invoke %tmp.45 %tmp.46();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 27 20 ]
+        %tmp.47 = true;
+        ret %tmp.47;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_22_60_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_22_16_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_22_16_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 30 16 ]
+        for @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_30_16_for_test @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_30_16_for_incr @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_30_16_for_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_30_16_for_init:
+        [ "C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_30_16_for_begin" "C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_30_16_for_end" ]
+        %i.2 = local;
+        %tmp.48 = 0;
+        lputv %i.2 %tmp.48;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_30_16_for_test:
+        %tmp.50 = lgetv %i.2;
+        %tmp.52 = getv ? :betXY;
+        %tmp.53 = getv function %tmp.52 :size;
+        %tmp.54 = invoke %tmp.52 %tmp.53();
+        %tmp.55 = lt %tmp.50 %tmp.54;
+        bf %tmp.55 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_30_16_for_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_30_16_for_begin:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_30_49_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 31 20 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_31_20_if_stmt:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_31_24_begin:
+        %tmp.56 = self;
+        %tmp.57 = getv function %tmp.56 :inbox;
+        %tmp.59 = getv ? :betXY;
+        %tmp.61 = lgetv %i.2;
+        %tmp.62 = agetv %tmp.59 %tmp.61;
+        %tmp.64 = getv ? :betWH;
+        %tmp.66 = lgetv %i.2;
+        %tmp.67 = agetv %tmp.64 %tmp.66;
+        %tmp.69 = lgetv %xy.1;
+        %tmp.70 = invoke %tmp.56 %tmp.57(%tmp.62, %tmp.67, %tmp.69);
+        %tmp.71 = dup %tmp.70;
+        bf %tmp.71 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_31_56_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_31_56_true:
+        %tmp.73 = getv ? :money;
+        %tmp.75 = getv ? :betamt;
+        %tmp.77 = lgetv %i.2;
+        %tmp.78 = agetv %tmp.75 %tmp.77;
+        %tmp.79 = gte %tmp.73 %tmp.78;
+        %tmp.80 = and %tmp.70 %tmp.79;
+        push %tmp.80;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_31_56_end:
+        %tmp.81 = phi [%tmp.71 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_31_24_begin] [%tmp.80 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_31_56_true] [%tmp.81 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_31_56_end];
+        bf %tmp.81 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_31_20_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_31_20_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_31_74_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 32 24 ]
+        %tmp.82 = getv self :bet;
+        %tmp.84 = getv ? :betamt;
+        %tmp.86 = lgetv %i.2;
+        %tmp.87 = agetv %tmp.84 %tmp.86;
+        %tmp.88 = add %tmp.82 %tmp.87;
+        putv self :bet dup %tmp.88;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 33 24 ]
+        %tmp.89 = getv self :money;
+        %tmp.91 = getv ? :betamt;
+        %tmp.93 = lgetv %i.2;
+        %tmp.94 = agetv %tmp.91 %tmp.93;
+        %tmp.95 = sub %tmp.89 %tmp.94;
+        putv self :money dup %tmp.95;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 34 24 ]
+        %tmp.96 = self;
+        %tmp.97 = getv function %tmp.96 :savegame;
+        invoke %tmp.96 %tmp.97();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 35 24 ]
+        %tmp.98 = getm $.Toybox.WatchUi;
+        %tmp.99 = getv function %tmp.98 :requestUpdate;
+        invoke %tmp.98 %tmp.99();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 36 24 ]
+        %tmp.100 = true;
+        ret %tmp.100;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_31_74_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_31_20_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_31_20_if_end:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_30_49_stop:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_30_16_for_incr:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 30 ]
+        %tmp.103 = lgetv %i.2;
+        %tmp.104 = add %tmp.103 1;
+        lputv %i.2 %tmp.104;
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_30_16_for_test;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_30_16_for_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 40 16 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_40_16_if_stmt:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_40_20_begin:
+        %tmp.105 = self;
+        %tmp.106 = getv function %tmp.105 :inbox;
+        %tmp.108 = getv ? :dealXY;
+        %tmp.110 = getv ? :buttonWH;
+        %tmp.112 = lgetv %xy.1;
+        %tmp.113 = invoke %tmp.105 %tmp.106(%tmp.108, %tmp.110, %tmp.112);
+        %tmp.114 = dup %tmp.113;
+        bf %tmp.114 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_40_50_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_40_50_true:
+        %tmp.116 = getv ? :bet;
+        %tmp.117 = 0;
+        %tmp.118 = gt %tmp.116 %tmp.117;
+        %tmp.119 = and %tmp.113 %tmp.118;
+        push %tmp.119;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_40_50_end:
+        %tmp.120 = phi [%tmp.114 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_40_20_begin] [%tmp.119 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_40_50_true] [%tmp.120 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_40_50_end];
+        bf %tmp.120 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_40_16_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_40_16_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_40_57_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 41 20 ]
+        %tmp.121 = self;
+        %tmp.122 = getv function %tmp.121 :deal;
+        invoke %tmp.121 %tmp.122();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 42 20 ]
+        %tmp.123 = self;
+        %tmp.124 = getv function %tmp.123 :getval;
+        %tmp.125 = 0;
+        %tmp.126 = invoke %tmp.123 %tmp.124(%tmp.125);
+        putv self :tmp %tmp.126;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 43 20 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_43_20_if_stmt:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_43_24_begin:
+        %tmp.128 = getv ? :ace;
+        %tmp.129 = dup %tmp.128;
+        bf %tmp.129 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_43_32_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_43_32_true:
+        %tmp.131 = getv ? :tmp;
+        %tmp.132 = 11;
+        %tmp.133 = eq %tmp.131 %tmp.132;
+        %tmp.134 = and %tmp.128 %tmp.133;
+        push %tmp.134;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_43_32_end:
+        %tmp.135 = phi [%tmp.129 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_43_24_begin] [%tmp.134 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_43_32_true] [%tmp.135 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_43_32_end];
+        bf %tmp.135 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_43_20_if_false;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_43_20_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_43_43_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 44 24 ]
+        %tmp.136 = self;
+        %tmp.137 = getv function %tmp.136 :dealerturn;
+        invoke %tmp.136 %tmp.137();
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_43_43_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_43_20_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_43_20_if_false:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_45_27_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 45 29 ]
+        %tmp.138 = 1;
+        putv self :state %tmp.138;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_45_27_stop:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_43_20_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 46 20 ]
+        %tmp.139 = self;
+        %tmp.140 = getv function %tmp.139 :savegame;
+        invoke %tmp.139 %tmp.140();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 47 20 ]
+        %tmp.141 = getm $.Toybox.WatchUi;
+        %tmp.142 = getv function %tmp.141 :requestUpdate;
+        invoke %tmp.141 %tmp.142();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 48 20 ]
+        %tmp.143 = true;
+        ret %tmp.143;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_40_57_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_40_16_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_40_16_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 50 16 ]
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_18_8_switchStmtEnd;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_51_12_switchCase:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 54 16 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_54_16_if_stmt:
+        %tmp.144 = self;
+        %tmp.145 = getv function %tmp.144 :inbox;
+        %tmp.147 = getv ? :standXY;
+        %tmp.149 = getv ? :buttonWH;
+        %tmp.151 = lgetv %xy.1;
+        %tmp.152 = invoke %tmp.144 %tmp.145(%tmp.147, %tmp.149, %tmp.151);
+        bf %tmp.152 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_54_16_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_54_16_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_54_48_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 55 20 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_55_20_if_stmt:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_55_24_begin:
+        %tmp.154 = getv ? :split;
+        %tmp.155 = dup %tmp.154;
+        bf %tmp.155 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_55_34_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_55_34_true:
+        %tmp.157 = getv ? :curhand;
+        %tmp.158 = 0;
+        %tmp.159 = eq %tmp.157 %tmp.158;
+        %tmp.160 = and %tmp.154 %tmp.159;
+        push %tmp.160;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_55_34_end:
+        %tmp.161 = phi [%tmp.155 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_55_24_begin] [%tmp.160 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_55_34_true] [%tmp.161 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_55_34_end];
+        bf %tmp.161 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_55_20_if_false;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_55_20_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_55_48_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 56 24 ]
+        %tmp.162 = 1;
+        putv self :curhand %tmp.162;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 57 24 ]
+        %tmp.163 = self;
+        %tmp.164 = getv function %tmp.163 :hit;
+        %tmp.166 = getv ? :curhand;
+        invoke %tmp.163 %tmp.164(%tmp.166);
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_55_48_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_55_20_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_55_20_if_false:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_59_25_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 59 27 ]
+        %tmp.167 = self;
+        %tmp.168 = getv function %tmp.167 :dealerturn;
+        invoke %tmp.167 %tmp.168();
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_59_25_stop:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_55_20_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 60 20 ]
+        %tmp.169 = self;
+        %tmp.170 = getv function %tmp.169 :savegame;
+        invoke %tmp.169 %tmp.170();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 61 20 ]
+        %tmp.171 = getm $.Toybox.WatchUi;
+        %tmp.172 = getv function %tmp.171 :requestUpdate;
+        invoke %tmp.171 %tmp.172();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 62 20 ]
+        %tmp.173 = true;
+        ret %tmp.173;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_54_48_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_54_16_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_54_16_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 64 16 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_64_16_if_stmt:
+        %tmp.174 = self;
+        %tmp.175 = getv function %tmp.174 :inbox;
+        %tmp.177 = getv ? :hitXY;
+        %tmp.179 = getv ? :buttonWH;
+        %tmp.181 = lgetv %xy.1;
+        %tmp.182 = invoke %tmp.174 %tmp.175(%tmp.177, %tmp.179, %tmp.181);
+        bf %tmp.182 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_64_16_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_64_16_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_64_46_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 65 20 ]
+        %tmp.183 = self;
+        %tmp.184 = getv function %tmp.183 :hit;
+        %tmp.186 = getv ? :curhand;
+        invoke %tmp.183 %tmp.184(%tmp.186);
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 66 20 ]
+        %tmp.187 = self;
+        %tmp.188 = getv function %tmp.187 :getval;
+        %tmp.190 = getv ? :curhand;
+        %tmp.191 = invoke %tmp.187 %tmp.188(%tmp.190);
+        putv self :tmp %tmp.191;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 67 20 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_67_20_if_stmt:
+        %tmp.193 = getv ? :tmp;
+        %tmp.194 = 21;
+        %tmp.195 = gte %tmp.193 %tmp.194;
+        bf %tmp.195 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_67_20_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_67_20_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_67_35_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 68 24 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_68_24_if_stmt:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_68_28_begin:
+        %tmp.197 = getv ? :split;
+        %tmp.198 = dup %tmp.197;
+        bf %tmp.198 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_68_38_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_68_38_true:
+        %tmp.200 = getv ? :curhand;
+        %tmp.201 = 0;
+        %tmp.202 = eq %tmp.200 %tmp.201;
+        %tmp.203 = and %tmp.197 %tmp.202;
+        push %tmp.203;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_68_38_end:
+        %tmp.204 = phi [%tmp.198 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_68_28_begin] [%tmp.203 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_68_38_true] [%tmp.204 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_68_38_end];
+        bf %tmp.204 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_68_24_if_false;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_68_24_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_68_52_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 69 28 ]
+        %tmp.205 = 1;
+        putv self :curhand %tmp.205;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 70 28 ]
+        %tmp.206 = self;
+        %tmp.207 = getv function %tmp.206 :hit;
+        %tmp.209 = getv ? :curhand;
+        invoke %tmp.206 %tmp.207(%tmp.209);
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_68_52_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_68_24_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_68_24_if_false:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_72_29_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 72 31 ]
+        %tmp.210 = self;
+        %tmp.211 = getv function %tmp.210 :dealerturn;
+        invoke %tmp.210 %tmp.211();
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_72_29_stop:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_68_24_if_end:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_67_35_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_67_20_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_67_20_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 74 20 ]
+        %tmp.212 = self;
+        %tmp.213 = getv function %tmp.212 :savegame;
+        invoke %tmp.212 %tmp.213();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 75 20 ]
+        %tmp.214 = getm $.Toybox.WatchUi;
+        %tmp.215 = getv function %tmp.214 :requestUpdate;
+        invoke %tmp.214 %tmp.215();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 76 20 ]
+        %tmp.216 = true;
+        ret %tmp.216;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_64_46_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_64_16_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_64_16_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 78 16 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_22_begin:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_22_begin:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_22_begin:
+        %tmp.218 = getv ? :split;
+        %tmp.219 = false;
+        %tmp.220 = eq %tmp.218 %tmp.219;
+        %tmp.221 = dup %tmp.220;
+        bf %tmp.221 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_43_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_43_true:
+        %tmp.223 = getv ? :hand;
+        %tmp.224 = 0;
+        %tmp.225 = agetv %tmp.223 %tmp.224;
+        %tmp.226 = getv function %tmp.225 :size;
+        %tmp.227 = invoke %tmp.225 %tmp.226();
+        %tmp.228 = 2;
+        %tmp.229 = eq %tmp.227 %tmp.228;
+        %tmp.230 = and %tmp.220 %tmp.229;
+        push %tmp.230;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_43_end:
+        %tmp.231 = phi [%tmp.221 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_22_begin] [%tmp.230 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_43_true] [%tmp.231 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_43_end];
+        %tmp.232 = dup %tmp.231;
+        bf %tmp.232 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_69_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_69_true:
+        %tmp.234 = getv ? :hand;
+        %tmp.235 = 0;
+        %tmp.236 = agetv %tmp.234 %tmp.235;
+        %tmp.237 = 0;
+        %tmp.238 = agetv %tmp.236 %tmp.237;
+        %tmp.239 = getv function %tmp.238 :substring;
+        %tmp.240 = 0;
+        %tmp.241 = 1;
+        %tmp.242 = invoke %tmp.238 %tmp.239(%tmp.240, %tmp.241);
+        %tmp.243 = getv function %tmp.242 :equals;
+        %tmp.245 = getv ? :hand;
+        %tmp.246 = 0;
+        %tmp.247 = agetv %tmp.245 %tmp.246;
+        %tmp.248 = 1;
+        %tmp.249 = agetv %tmp.247 %tmp.248;
+        %tmp.250 = getv function %tmp.249 :substring;
+        %tmp.251 = 0;
+        %tmp.252 = 1;
+        %tmp.253 = invoke %tmp.249 %tmp.250(%tmp.251, %tmp.252);
+        %tmp.254 = invoke %tmp.242 %tmp.243(%tmp.253);
+        %tmp.255 = and %tmp.231 %tmp.254;
+        push %tmp.255;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_69_end:
+        %tmp.256 = phi [%tmp.232 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_22_begin] [%tmp.255 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_69_true] [%tmp.256 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_69_end];
+        %tmp.257 = dup %tmp.256;
+        bf %tmp.257 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_135_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_135_true:
+        %tmp.259 = getv ? :money;
+        %tmp.261 = getv ? :bet;
+        %tmp.262 = gte %tmp.259 %tmp.261;
+        %tmp.263 = and %tmp.256 %tmp.262;
+        push %tmp.263;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_135_end:
+        %tmp.264 = phi [%tmp.257 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_22_begin] [%tmp.263 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_135_true] [%tmp.264 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_78_135_end];
+        putv self :tmp %tmp.264;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 79 16 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_79_16_if_stmt:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_79_20_begin:
+        %tmp.265 = self;
+        %tmp.266 = getv function %tmp.265 :inbox;
+        %tmp.268 = getv ? :splitXY;
+        %tmp.270 = getv ? :buttonWH;
+        %tmp.272 = lgetv %xy.1;
+        %tmp.273 = invoke %tmp.265 %tmp.266(%tmp.268, %tmp.270, %tmp.272);
+        %tmp.274 = dup %tmp.273;
+        bf %tmp.274 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_79_51_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_79_51_true:
+        %tmp.276 = getv ? :tmp;
+        %tmp.277 = and %tmp.273 %tmp.276;
+        push %tmp.277;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_79_51_end:
+        %tmp.278 = phi [%tmp.274 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_79_20_begin] [%tmp.277 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_79_51_true] [%tmp.278 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_79_51_end];
+        bf %tmp.278 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_79_16_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_79_16_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_79_56_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 80 20 ]
+        %tmp.279 = true;
+        putv self :split %tmp.279;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 81 20 ]
+        %tmp.280 = getv self :money;
+        %tmp.282 = getv ? :bet;
+        %tmp.283 = sub %tmp.280 %tmp.282;
+        putv self :money dup %tmp.283;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 82 20 ]
+        %tmp.284 = getv self :hand;
+        %tmp.285 = newa 1;
+        %tmp.287 = getv ? :hand;
+        %tmp.288 = 0;
+        %tmp.289 = agetv %tmp.287 %tmp.288;
+        %tmp.290 = 1;
+        %tmp.291 = agetv %tmp.289 %tmp.290;
+        %tmp.292 = dup %tmp.285;
+        %tmp.293 = aputv %tmp.292 0 %tmp.291;
+        %tmp.294 = 1;
+        aputv %tmp.284 %tmp.294 %tmp.293;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 83 20 ]
+        %tmp.295 = getv self :hand;
+        %tmp.296 = newa 1;
+        %tmp.298 = getv ? :hand;
+        %tmp.299 = 0;
+        %tmp.300 = agetv %tmp.298 %tmp.299;
+        %tmp.301 = 0;
+        %tmp.302 = agetv %tmp.300 %tmp.301;
+        %tmp.303 = dup %tmp.296;
+        %tmp.304 = aputv %tmp.303 0 %tmp.302;
+        %tmp.305 = 0;
+        aputv %tmp.295 %tmp.305 %tmp.304;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 84 20 ]
+        %tmp.306 = self;
+        %tmp.307 = getv function %tmp.306 :hit;
+        %tmp.308 = 0;
+        invoke %tmp.306 %tmp.307(%tmp.308);
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 85 20 ]
+        %tmp.309 = self;
+        %tmp.310 = getv function %tmp.309 :savegame;
+        invoke %tmp.309 %tmp.310();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 86 20 ]
+        %tmp.311 = getm $.Toybox.WatchUi;
+        %tmp.312 = getv function %tmp.311 :requestUpdate;
+        invoke %tmp.311 %tmp.312();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 87 20 ]
+        %tmp.313 = true;
+        ret %tmp.313;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_79_56_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_79_16_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_79_16_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 89 16 ]
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_18_8_switchStmtEnd;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_90_12_switchCase:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 93 16 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_93_16_if_stmt:
+        %tmp.314 = self;
+        %tmp.315 = getv function %tmp.314 :inbox;
+        %tmp.317 = getv ? :newXY;
+        %tmp.319 = getv ? :buttonWH;
+        %tmp.321 = lgetv %xy.1;
+        %tmp.322 = invoke %tmp.314 %tmp.315(%tmp.317, %tmp.319, %tmp.321);
+        bf %tmp.322 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_93_16_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_93_16_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_93_46_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 94 20 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_94_20_if_stmt:
+        %tmp.324 = getv ? :split;
+        bf %tmp.324 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_94_20_if_false;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_94_20_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_94_31_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 94 33 ]
+        %tmp.325 = self;
+        %tmp.326 = getv function %tmp.325 :getresult;
+        %tmp.327 = 1;
+        %tmp.328 = invoke %tmp.325 %tmp.326(%tmp.327);
+        putv self :tmp %tmp.328;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_94_31_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_94_20_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_94_20_if_false:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_95_25_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 95 27 ]
+        %tmp.329 = self;
+        %tmp.330 = getv function %tmp.329 :getresult;
+        %tmp.331 = 0;
+        %tmp.332 = invoke %tmp.329 %tmp.330(%tmp.331);
+        putv self :tmp %tmp.332;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_95_25_stop:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_94_20_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 96 20 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_96_20_if_stmt:
+        %tmp.334 = getv ? :tmp;
+        %tmp.335 = 0;
+        %tmp.336 = ne %tmp.334 %tmp.335;
+        bf %tmp.336 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_96_20_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_96_20_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_96_34_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 96 36 ]
+        %tmp.337 = 0;
+        putv self :push %tmp.337;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_96_34_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_96_20_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_96_20_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 97 20 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_97_20_if_stmt:
+        %tmp.339 = getv ? :money;
+        %tmp.340 = 0;
+        %tmp.341 = eq %tmp.339 %tmp.340;
+        bf %tmp.341 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_97_20_if_false;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_97_20_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_97_36_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 98 24 ]
+        %tmp.342 = 3;
+        putv self :state %tmp.342;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_97_36_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_97_20_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_97_20_if_false:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_99_27_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 100 24 ]
+        %tmp.343 = self;
+        %tmp.344 = getv function %tmp.343 :newround;
+        invoke %tmp.343 %tmp.344();
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_99_27_stop:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_97_20_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 102 20 ]
+        %tmp.345 = self;
+        %tmp.346 = getv function %tmp.345 :savegame;
+        invoke %tmp.345 %tmp.346();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 103 20 ]
+        %tmp.347 = getm $.Toybox.WatchUi;
+        %tmp.348 = getv function %tmp.347 :requestUpdate;
+        invoke %tmp.347 %tmp.348();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 104 20 ]
+        %tmp.349 = true;
+        ret %tmp.349;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_93_46_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_93_16_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_93_16_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 106 16 ]
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_18_8_switchStmtEnd;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_107_12_switchCase:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 110 16 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_110_16_if_stmt:
+        %tmp.350 = self;
+        %tmp.351 = getv function %tmp.350 :inbox;
+        %tmp.353 = getv ? :newXY;
+        %tmp.355 = getv ? :buttonWH;
+        %tmp.357 = lgetv %xy.1;
+        %tmp.358 = invoke %tmp.350 %tmp.351(%tmp.353, %tmp.355, %tmp.357);
+        bf %tmp.358 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_110_16_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_110_16_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_110_46_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 111 20 ]
+        %tmp.359 = self;
+        %tmp.360 = getv function %tmp.359 :newgame;
+        invoke %tmp.359 %tmp.360();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 112 20 ]
+        %tmp.361 = getm $.Toybox.WatchUi;
+        %tmp.362 = getv function %tmp.361 :requestUpdate;
+        invoke %tmp.361 %tmp.362();
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 113 20 ]
+        %tmp.363 = true;
+        ret %tmp.363;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_110_46_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_110_16_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_110_16_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 115 16 ]
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_18_8_switchStmtEnd;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_18_8_defaultCodeBegin:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_18_8_switchStmtEnd:
+        pop;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 117 8 ]
+        %tmp.364 = false;
+        ret %tmp.364;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_15_42_stop:
+    }
+    [ @file = "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc"; @line = 124; ]
+    function inbox(boxxy, boxwh, point) as Boolean {
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_124_49_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 125 8 ]
+        [ "C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_124_49_start" "C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_124_49_stop" ]
+        %bx.1 = local;
+        %tmp.2 = lgetv %boxxy;
+        %tmp.3 = 0;
+        %tmp.4 = agetv %tmp.2 %tmp.3;
+        %tmp.6 = lgetv %boxwh;
+        %tmp.7 = 0;
+        %tmp.8 = agetv %tmp.6 %tmp.7;
+        %tmp.9 = 2;
+        %tmp.10 = div %tmp.8 %tmp.9;
+        %tmp.11 = sub %tmp.4 %tmp.10;
+        lputv %bx.1 %tmp.11;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 126 8 ]
+        [ "C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_124_49_start" "C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_124_49_stop" ]
+        %by.2 = local;
+        %tmp.13 = lgetv %boxxy;
+        %tmp.14 = 1;
+        %tmp.15 = agetv %tmp.13 %tmp.14;
+        %tmp.17 = lgetv %boxwh;
+        %tmp.18 = 1;
+        %tmp.19 = agetv %tmp.17 %tmp.18;
+        %tmp.20 = 2;
+        %tmp.21 = div %tmp.19 %tmp.20;
+        %tmp.22 = sub %tmp.15 %tmp.21;
+        lputv %by.2 %tmp.22;
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 127 8 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_127_8_if_stmt:
+        %tmp.24 = lgetv %point;
+        %tmp.25 = 0;
+        %tmp.26 = agetv %tmp.24 %tmp.25;
+        %tmp.28 = lgetv %bx.1;
+        %tmp.29 = lt %tmp.26 %tmp.28;
+        bf %tmp.29 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_127_8_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_127_8_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_127_25_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 127 26 ]
+        %tmp.30 = false;
+        ret %tmp.30;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_127_25_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_127_8_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_127_8_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 128 8 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_128_8_if_stmt:
+        %tmp.32 = lgetv %point;
+        %tmp.33 = 0;
+        %tmp.34 = agetv %tmp.32 %tmp.33;
+        %tmp.36 = lgetv %bx.1;
+        %tmp.38 = lgetv %boxwh;
+        %tmp.39 = 0;
+        %tmp.40 = agetv %tmp.38 %tmp.39;
+        %tmp.41 = add %tmp.36 %tmp.40;
+        %tmp.42 = gt %tmp.34 %tmp.41;
+        bf %tmp.42 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_128_8_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_128_8_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_128_34_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 128 35 ]
+        %tmp.43 = false;
+        ret %tmp.43;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_128_34_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_128_8_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_128_8_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 129 8 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_129_8_if_stmt:
+        %tmp.45 = lgetv %point;
+        %tmp.46 = 1;
+        %tmp.47 = agetv %tmp.45 %tmp.46;
+        %tmp.49 = lgetv %by.2;
+        %tmp.50 = lt %tmp.47 %tmp.49;
+        bf %tmp.50 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_129_8_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_129_8_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_129_25_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 129 26 ]
+        %tmp.51 = false;
+        ret %tmp.51;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_129_25_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_129_8_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_129_8_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 130 8 ]
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_130_8_if_stmt:
+        %tmp.53 = lgetv %point;
+        %tmp.54 = 1;
+        %tmp.55 = agetv %tmp.53 %tmp.54;
+        %tmp.57 = lgetv %by.2;
+        %tmp.59 = lgetv %boxwh;
+        %tmp.60 = 1;
+        %tmp.61 = agetv %tmp.59 %tmp.60;
+        %tmp.62 = add %tmp.57 %tmp.61;
+        %tmp.63 = gt %tmp.55 %tmp.62;
+        bf %tmp.63 @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_130_8_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_130_8_if_true:
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_130_34_start:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 130 35 ]
+        %tmp.64 = false;
+        ret %tmp.64;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_130_34_stop:
+        goto @C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_130_8_if_end;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_130_8_if_end:
+[ "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc" 131 8 ]
+        %tmp.65 = true;
+        ret %tmp.65;
+C_Garmin_Projects_Blackjack_source_BlackjackDelegate_mc_124_49_stop:
+    }
+}
+[ @file = "C:\Garmin\Projects\Blackjack\source\BlackjackDelegate.mc"; @line = 1; ]
+<init> {
+}

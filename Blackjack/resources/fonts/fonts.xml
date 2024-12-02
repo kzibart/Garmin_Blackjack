@@ -1,0 +1,6 @@
+<fonts>
+    <font id="suits20" filename="CardSuits20.fnt" antialias="true" />
+    <font id="suits30" filename="CardSuits30.fnt" antialias="true" />
+    <font id="suits35" filename="CardSuits35.fnt" antialias="true" />
+    <font id="suits40" filename="CardSuits40.fnt" antialias="true" />
+</fonts>
